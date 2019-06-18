@@ -3,8 +3,8 @@
   "license": "MIT",
   "version": "0.0.0",
   "main": "package.json",
-  "name": "frontend-boilerplate",
-  "homepage": "https://frontend-boilerplate.netlify.com",
+  "name": "idol-club-recommend",
+  "homepage": "https://github.com/syukyu8/idol-club-recommend",
   "description": "A boilerplate for frontend development",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js",
