@@ -1,0 +1,66 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1.5.0
+executors:
+  default:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:11
+        environment:
+          HUSKY_SKIP_INSTALL: true
+commands:
+  restore_dependencies:
+    steps:
+      - restore_cache:
+          name: Restore node_modules
+          key: app-deps-{{ checksum "yarn.lock" }}
+  save_dependencies:
+    steps:
+      - save_cache:
+          name: Cache node_modules
+          key: app-deps-{{ checksum "yarn.lock" }}
+          paths: ~/app/node_modules
+jobs:
+  setup:
+    executor: default
+    steps:
+      - checkout
+      - restore_dependencies
+      - run:
+          name: Install dependencies
+          command: yarn install --frozen-lockfile
+      - save_dependencies
+  check:
+    executor: default
+    steps:
+      - checkout
+      - restore_dependencies
+      - run:
+          name: Run Lint
+          command: yarn run lint
+      - run:
+          name: Run Typecheck
+          command: yarn run typecheck
+      - run:
+          name: Run Unit Test
+          command: yarn run coverage && yarn run codecov
+workflows:
+  work:
+    jobs:
+      - setup
+      - check:
+          requires:
+            - setup
+      - cypress/install:
+          requires:
+            - setup
+          yarn: true
+          executor: cypress/browsers-chrome69
+      - cypress/run:
+          requires:
+            - cypress/install
+          yarn: true
+          executor: cypress/browsers-chrome69
+          build: yarn run build
+          start: yarn run serve
+          command: yarn run percy exec -- cypress run --browser chrome --record

@@ -1,0 +1,105 @@
+{
+  "private": true,
+  "license": "MIT",
+  "version": "0.0.0",
+  "main": "package.json",
+  "name": "frontend-boilerplate",
+  "homepage": "https://frontend-boilerplate.netlify.com",
+  "description": "A boilerplate for frontend development",
+  "scripts": {
+    "start": "webpack-dev-server --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js",
+    "serve": "serve -s build -p 1234 -n",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "typecheck": "tsc",
+    "lint": "eslint --ext .js,.ts,.tsx .",
+    "lazy": "run-p typecheck lint test"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.10",
+    "@material-ui/core": "^4.1.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^4.4.0-beta.6",
+    "redux": "^4.0.1",
+    "redux-aggregate": "^2.1.2",
+    "redux-react-hook": "^3.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@percy/cypress": "^1.0.1",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.0",
+    "@types/react": "^16.8.12",
+    "@types/react-dom": "^16.8.3",
+    "@types/react-router-dom": "^4.3.1",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.6.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-emotion": "^10.0.9",
+    "clean-webpack-plugin": "^1.0.1",
+    "codecov": "^3.2.0",
+    "copy-webpack-plugin": "^5.0.2",
+    "core-js": "^3.1.3",
+    "css-loader": "^2.1.1",
+    "cypress": "^3.2.0",
+    "dotenv-webpack": "^1.7.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-compat": "^3.1.0",
+    "eslint-plugin-cypress": "^2.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "eslint-plugin-unicorn": "^8.0.1",
+    "file-loader": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
+    "jest": "^24.7.1",
+    "mini-css-extract-plugin": "^0.5.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.16.4",
+    "react-testing-library": "^6.0.4",
+    "serve": "^11.0.0",
+    "typescript": "^3.3.4000",
+    "webapp-webpack-plugin": "^2.6.1",
+    "webpack": "^4.29.6",
+    "webpack-build-notifier": "^0.1.31",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "author": {
+    "name": "ymkz",
+    "email": "ymkzly@gmail.com",
+    "url": "https://github.com/ymkz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ymkz/frontend-boilerplate"
+  },
+  "bugs": {
+    "url": "https://github.com/ymkz/frontend-boilerplate/issues"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn lazy"
+    }
+  }
+}

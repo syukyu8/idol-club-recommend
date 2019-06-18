@@ -1,0 +1,50 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "cypress/globals": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": true },
+    "ecmaVersion": 2018,
+    "loggerFn": false,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "compat",
+    "unicorn",
+    "cypress",
+    "prettier",
+    "react-hooks",
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:compat/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:cypress/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/unicorn",
+    "prettier/react"
+  ],
+  "rules": {
+    "no-console": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
