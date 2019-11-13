@@ -3,8 +3,9 @@ import { bindActionCreators } from 'redux'
 import { useDispatch, useMappedState } from 'redux-react-hook'
 import { RootState } from '../store'
 import { counterActions } from '../store/counter'
-//import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid'
 //import { access } from 'fs';
 
 const mapState = (state: RootState) => ({
@@ -509,21 +510,35 @@ export default function Counter() {
       pointTable[key][value]();
       setCount(count + 1)
       console.log(count)
-      if(count >= 10){
+      if(count >= 9){
         stop = 1;
         console.log("count",stop);
       }
     };
 
     
+    const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+      button: {
+        margin: theme.spacing(1),
+      },
+      input: {
+        display: 'none',
+      },
+    }),
+  )
+
+  const classes = useStyles()
     
     return(
       <div>
-        <Button variant="outlined" size="medium" color="primary"
-            data-key={Match[row]}
-            data-value={database[row][col]}
-            onClick={handleClick} >{`${table[Match[row]]}: ${base[row][col]}`}
-        </Button>
+        <Grid container direction="column" alignItems="center" justify="center" spacing={1}>
+          <Button variant="contained" size="large" color="primary" className={classes.button}
+              data-key={Match[row]}
+              data-value={database[row][col]}
+              onClick={handleClick} >{`${table[Match[row]]}: ${base[row][col]}`}
+          </Button>
+          </Grid>
         </div>
     );
   }
@@ -577,16 +592,18 @@ export default function Counter() {
       console.log(stop)
       return(
       <div>
-        あなたにオススメのVtuberは・・・
-           {
-          array_app.map(
-            (item,index) => (
-              <div key={index}>
-                <a href={item.href}>{item.name}</a>
-              </div>
+        <Grid container direction="column" alignItems="center" justify="center" spacing={1}>
+          あなたにオススメのVtuberは・・・
+            {
+            array_app.map(
+              (item,index) => (
+                <div key={index}>
+                  <a href={item.href}>{item.name}</a>
+                </div>
+              )
             )
-          )
-        }
+          }
+        </Grid>
         </div>
       );
     }
@@ -607,7 +624,9 @@ export default function Counter() {
 }
   return (
     <React.Fragment>
-      <h1>Question</h1>
+      <Grid container direction="column" alignItems="center" justify="center" spacing={1}>
+        <h1>Question</h1>
+      </Grid>
       <div data-testid="counter-count">
       {/* 夜桜たま:{counter.tama_count}
       北上双葉:{counter.futaba_count}
