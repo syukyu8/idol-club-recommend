@@ -3,21 +3,19 @@ import Grid from '@material-ui/core/Grid'
 import logo from '../images/test.png'
 import NavLink from '../components/elements/nav-link'
 
-const style = {
-  width: '100%',
-  height: '11rem',
-  backgroundImage: `url(${logo})`
-}
-
 export default function Home() {
   
   return (
     <React.Fragment>
-      {/* <div>
-        <img style={ style } />
-      </div> */}
+      <div style={{
+  width: '100%',
+  minHeight:'calc(100vh - 64px)',
+  backgroundColor:'#ffa07a',
+  backgroundSize:'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundImage: `url(${logo})`
+}}>
       <Grid container 
-      spacing={3}
       direction="column"
       alignItems="center"
       justify="center">
@@ -31,11 +29,12 @@ export default function Home() {
           いずれはVtuber全員をオススメできるようなサイトにしたいです
         </Grid>
         <Grid item xs={12}>
-          <NavLink exact activeClassName="active" to="/counter">
+          <NavLink exact to="/counter">
             質問に答える(10問です！)
           </NavLink>
         </Grid>
       </Grid>
+      </div>
     </React.Fragment>
   )
 }

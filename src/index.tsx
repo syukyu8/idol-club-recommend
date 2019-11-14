@@ -8,10 +8,12 @@ import Counter from './pages/counter'
 import Home from './pages/home'
 import NotFound from './pages/not-found'
 import store from './store'
+import {CssBaseline} from '@material-ui/core'
 
 ReactDOM.render(
   <StoreContext.Provider value={store}>
     <ErrorBoundary>
+      <CssBaseline />
       <BrowserRouter>
         <Header />
         <Switch>

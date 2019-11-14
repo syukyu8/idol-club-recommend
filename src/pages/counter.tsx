@@ -532,7 +532,7 @@ export default function Counter() {
     
     return(
       <div>
-        <Grid container direction="column" alignItems="center" justify="center" spacing={1}>
+        <Grid container direction="column" alignItems="center" justify="center">
           <Button variant="contained" size="large" color="primary" className={classes.button}
               data-key={Match[row]}
               data-value={database[row][col]}
@@ -592,7 +592,7 @@ export default function Counter() {
       console.log(stop)
       return(
       <div>
-        <Grid container direction="column" alignItems="center" justify="center" spacing={1}>
+        <Grid container direction="column" alignItems="center" justify="center">
           あなたにオススメのVtuberは・・・
             {
             array_app.map(
@@ -624,10 +624,14 @@ export default function Counter() {
 }
   return (
     <React.Fragment>
-      <Grid container direction="column" alignItems="center" justify="center" spacing={1}>
-        <h1>Question</h1>
-      </Grid>
-      <div data-testid="counter-count">
+      <div data-testid="counter-count" style={{width: '100%',
+        minHeight:'calc(100vh - 64px)',
+        backgroundColor:'#fadce9',
+        backgroundSize:'cover',
+        backgroundRepeat: 'no-repeat'}}>
+        <Grid container direction="column" alignItems="center" justify="center">
+          <h1>Question</h1>
+        </Grid>
       {/* 夜桜たま:{counter.tama_count}
       北上双葉:{counter.futaba_count}
       金剛いろは:{counter.iroha_count}
@@ -640,8 +644,8 @@ export default function Counter() {
       神楽ずず:{counter.suzu_count}
       牛巻りこ:{counter.riko_count}
       木曽あずき:{counter.azuki_count} */}
+        <App />
       </div>
-      <App />
     </React.Fragment>
   )
 }
