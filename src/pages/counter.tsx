@@ -6,6 +6,7 @@ import { counterActions } from '../store/counter'
 import { makeStyles, createStyles, Theme} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid'
+import logo from '../images/idol_syugo.png'
 //import { access } from 'fs';
 
 const mapState = (state: RootState) => ({
@@ -628,7 +629,8 @@ export default function Counter() {
         minHeight:'calc(100vh - 64px)',
         backgroundColor:'#fadce9',
         backgroundSize:'cover',
-        backgroundRepeat: 'no-repeat'}}>
+        backgroundRepeat: 'no-repeat',
+        backgroundImage:`url(${logo})`}}>
         <Grid container direction="column" alignItems="center" justify="center">
           <h1>Question</h1>
         </Grid>

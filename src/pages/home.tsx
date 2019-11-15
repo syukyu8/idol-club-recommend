@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Grid from '@material-ui/core/Grid'
-import logo from '../images/test.png'
+import logo from '../images/idol_syugo.png'
 import NavLink from '../components/elements/nav-link'
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
       <div style={{
   width: '100%',
   minHeight:'calc(100vh - 64px)',
-  backgroundColor:'#ffa07a',
+  backgroundColor:'#fadce9',
   backgroundSize:'cover',
   backgroundRepeat: 'no-repeat',
   backgroundImage: `url(${logo})`
