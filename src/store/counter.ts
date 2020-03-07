@@ -12,7 +12,8 @@ export interface CounterState {
   mochi_count: number,
   suzu_count: number,
   riko_count: number,
-  azuki_count: number
+  azuki_count: number,
+  stop: number
 }
 
 const initialState: CounterState = {
@@ -27,13 +28,15 @@ const initialState: CounterState = {
   mochi_count: 0,
   suzu_count: 0,
   riko_count: 0,
-  azuki_count: 0
+  azuki_count: 0,
+  stop: 0
 }
 
 const mutations = {
   clear: (): CounterState => initialState,
   increment: (state: CounterState): CounterState => ({
     ...state,
+    stop: state.stop + 1
     //tama_count: state.tama_count + 1,
     // futaba_count: state.futaba_count + 1,
     //iroha_count: state.iroha_count + 1,

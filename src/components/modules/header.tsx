@@ -28,12 +28,12 @@ export default function Header() {
         <Toolbar>
           <Box display="flex" alignItems="center" justifyContent="center" width="100%">
             <NavLink exact to="/">
-              <Typography variant="h3">
+              <Typography variant="h3" style={{color:'#ffffff'}}>
                 Top page
               </Typography>
             </NavLink>
             <NavLink exact to="/counter" style={{marginLeft:32}}>
-              <Typography variant="h3">
+              <Typography variant="h3" style={{color:'#ffffff'}}>
                 Question
               </Typography>
             </NavLink>
