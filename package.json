@@ -74,7 +74,7 @@
     "serve": "^11.0.0",
     "typescript": "^3.3.4000",
     "webapp-webpack-plugin": "^2.6.1",
-    "webpack": "^4.29.6",
+    "webpack": "^5.94.0",
     "webpack-build-notifier": "^0.1.31",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
